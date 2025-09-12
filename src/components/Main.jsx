@@ -1,16 +1,17 @@
+import React from "react"
+
 export default function Main() {
-    const ingridients = ["milk", "eggs", "flour"];
+    const [ingridients, setIngridients] = React.useState([])
 
     const ingListItems = ingridients.map(
         (ingridient) => <li key={ingridient}>{ingridient}</li>
     )
-    
+
     function handleSubmit(e) {
         e.preventDefault()
         const formData = new FormData(e.target);
-        const ingridient = formData.get("ingridient");
-        ingridients.push(ingridient);
-        console.log(ingridients);
+        const newIngridient = formData.get("ingridient");
+        setIngridients(prevIngridients => [...prevIngridients, newIngridient])
     }
 
     return (
