@@ -9,7 +9,12 @@ export default function Main() {
 
     function addIngridient(formData) {
         const newIngridient = formData.get("ingridient");
+        if (!newIngridient) return;
         setIngridients(prevIngridients => [...prevIngridients, newIngridient])
+    }
+
+    function clearIngridients() {
+        setIngridients([])
     }
 
     return (
@@ -24,21 +29,24 @@ export default function Main() {
                 <button>+ Add ingridient</button>
             </form>
 
-            { ingridients.length > 0 &&
-            <section>
-                <h2>Ingridients available:</h2>
-                <ul className="ingridient_list">
-                    {ingListItems}
-                </ul>
 
-                <div className="get-recipe-container">
+            <section>
+                {ingridients.length > 0 && <div className="ingridient_list">
+                    <h2>Ingridients available:</h2>
+                    <ul >
+                        {ingListItems}
+                    </ul>
+                    <button onClick={clearIngridients}>Clear ingridients</button>
+                </div>}
+
+                {ingridients.length > 3 && <div className="get-recipe-container">
                     <div>
                         <h3>Ready for a recipe?</h3>
                         <p>Generate a resipe from your list of ingridients</p>
                     </div>
                     <button>Get a recipe</button>
-                </div>
-            </section>}
+                </div>}
+            </section>
         </main>
     )
 }
