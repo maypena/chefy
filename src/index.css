@@ -55,7 +55,7 @@ main {
     transition: background-color 0.3s ease;
 }
 
-.ingridient_list > button {
+.clear_button {
     background-color: #F87171;
     border: none;
     border-radius: 6px;
@@ -64,6 +64,7 @@ main {
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    margin-top: 20px;
 
 }
 
