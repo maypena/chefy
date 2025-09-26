@@ -25,6 +25,11 @@ export default function Main() {
         })
     }
 
+    function removeIng(e) {
+        const ingToRemove = e.target.previousSibling.s
+        setIngridients(prevIngridients => prevIngridients.filter(ing => ing !== ingToRemove))
+    }
+
     return (
         <main>
             <form action={addIngridient} className="add_ingridient_form">
@@ -40,6 +45,7 @@ export default function Main() {
             <Ingridients ingridients={ingridients}
                          clearIngridients={clearIngridients}
                          getRecipe={getRecipe}
+                         removeIng={removeIng}
             />
 
             {recipe && <Recipe recipe={recipe}/>}

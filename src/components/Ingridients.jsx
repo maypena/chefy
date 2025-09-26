@@ -1,8 +1,11 @@
-export default function Ingridients({ingridients, getRecipe}) {
+export default function Ingridients({ ingridients, getRecipe, removeIng }) {
     const ingListItems = ingridients.map(
-        (ingridient) => <li key={ingridient}>{ingridient}</li>
+        (ingridient) => <div className="individual_ingridient_container">
+            <li key={ingridient}>{ingridient}</li>
+            <button onClick={removeIng}>X</button>
+        </div>
     )
-    
+
     return <section>
         {ingridients.length > 0 && <div className="ingridient_list">
             <h2>Ingridients available:</h2>

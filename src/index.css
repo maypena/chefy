@@ -115,4 +115,26 @@ main {
 
 .recipe_container ul li, .recipe_container ol li {
     margin-bottom: 8px;
+
+}
+
+.individual_ingridient_container {
+      list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4e29d;
+    border-radius: 8px;
+    padding: 10px 20px;
+    margin-bottom: 12px;
+}
+
+.individual_ingridient_container button {
+    border: none;
+    background: none;
+    color: #D17557;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 24px;
+    font-weight: 500;
 }
