@@ -1,4 +1,6 @@
-export default function Ingridients({ ingridients, getRecipe, removeIng }) {
+import { FadeLoader } from "react-spinners"
+
+export default function Ingridients({ ingridients, getRecipe, removeIng, isLoading }) {
     const ingListItems = ingridients.map(
         (ingridient) => <div className="individual_ingridient_container">
             <li key={ingridient}>{ingridient}</li>
@@ -20,6 +22,7 @@ export default function Ingridients({ ingridients, getRecipe, removeIng }) {
                 <p>Generate a resipe from your list of ingridients</p>
             </div>
             <button onClick={getRecipe}>Get a recipe</button>
+            <FadeLoader color="silver" size={50} loading={isLoading} aria-label="Loading Spinner"/>
         </div>}
     </section>
 }

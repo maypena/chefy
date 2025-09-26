@@ -1,11 +1,12 @@
 import React from "react"
 import Recipe from "./Recipe"
 import Ingridients from "./Ingridients"
-import {getRecipeFromMistral} from "/src/ai.js"
+import { getRecipeFromMistral } from "/src/ai.js"
 
 export default function Main() {
     const [ingridients, setIngridients] = React.useState([])
     const [recipe, setRecipe] = React.useState()
+    const [isLoading, setIsLoading] = React.useState(false)
 
     function addIngridient(formData) {
         const newIngridient = formData.get("ingridient");
@@ -15,14 +16,16 @@ export default function Main() {
 
     function clearIngridients() {
         setIngridients([])
-        setRecipeShown(false)
+        setRecipe('')
     }
 
     function getRecipe() {
+        setIsLoading(true)
         getRecipeFromMistral(ingridients).then(
         (recipe) => {
             setRecipe(recipe)
         })
+        .finally(() => setIsLoading(false))
     }
 
     function removeIng(e) {
@@ -46,6 +49,7 @@ export default function Main() {
                          clearIngridients={clearIngridients}
                          getRecipe={getRecipe}
                          removeIng={removeIng}
+                         isLoading={isLoading}
             />
 
             {recipe && <Recipe recipe={recipe}/>}
