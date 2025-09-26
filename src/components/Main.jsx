@@ -1,10 +1,11 @@
 import React from "react"
 import Recipe from "./Recipe"
 import Ingridients from "./Ingridients"
+import {getRecipeFromMistral} from "/src/ai.js"
 
 export default function Main() {
     const [ingridients, setIngridients] = React.useState([])
-    const [recipeShown, setRecipeShown] = React.useState(false)
+    const [recipe, setRecipe] = React.useState()
 
     function addIngridient(formData) {
         const newIngridient = formData.get("ingridient");
@@ -17,8 +18,11 @@ export default function Main() {
         setRecipeShown(false)
     }
 
-    function flipRecipeShown() {
-        setRecipeShown(prevRecipeShown => !prevRecipeShown)
+    function getRecipe() {
+        getRecipeFromMistral(ingridients).then(
+        (recipe) => {
+            setRecipe(recipe)
+        })
     }
 
     return (
@@ -35,10 +39,10 @@ export default function Main() {
 
             <Ingridients ingridients={ingridients}
                          clearIngridients={clearIngridients}
-                         flipRecipeShown={flipRecipeShown}
+                         getRecipe={getRecipe}
             />
 
-            {recipeShown && <Recipe />}
+            {recipe && <Recipe recipe={recipe}/>}
 
             {ingridients.length > 0 && <button onClick={clearIngridients}  className="clear_button">Clear all!</button>}
         </main>

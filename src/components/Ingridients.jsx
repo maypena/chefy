@@ -1,4 +1,4 @@
-export default function Ingridients({ingridients, flipRecipeShown}) {
+export default function Ingridients({ingridients, getRecipe}) {
     const ingListItems = ingridients.map(
         (ingridient) => <li key={ingridient}>{ingridient}</li>
     )
@@ -16,7 +16,7 @@ export default function Ingridients({ingridients, flipRecipeShown}) {
                 <h3>Ready for a recipe?</h3>
                 <p>Generate a resipe from your list of ingridients</p>
             </div>
-            <button onClick={flipRecipeShown}>Get a recipe</button>
+            <button onClick={getRecipe}>Get a recipe</button>
         </div>}
     </section>
 }
