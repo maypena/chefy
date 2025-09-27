@@ -4,13 +4,13 @@ This project takes a list of ingridients from the user and sends a call to mistr
 
 # How to use:
 1. Add 4 or more ingridients ingridients
-![Step 1 Screenshot](src\assets\step1.png)
+![Step 1 Screenshot](assets/step1.png)
 
 2. Click the Get Recipe button and wait for a response.
-![Step 2 Screenshot](src\assets\step2.png)
+![Step 2 Screenshot](assets/step2.png)
 
 3. Read your recipe!
-![Step 3 Screenshot](src\assets\step3.png)
+![Step 3 Screenshot](assets/step3.png)
 
 
 # Resource used:
